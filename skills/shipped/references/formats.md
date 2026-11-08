@@ -117,7 +117,7 @@ Only accepted or edited candidates go here, grouped by project.
 - ...
 ```
 
-**Kinds:** `shipped`, `doc`, `decision`, `client`, `unblocked`, `praise`, `process`. `Outcome:` is either a number marked `(confirmed)` or a plain qualitative outcome. Never write an unconfirmed number.
+**Kinds:** `shipped`, `doc`, `decision`, `client`, `unblocked`, `praise`, `process`, `growth` (certifications, training, new scope). `Outcome:` is either a number marked `(confirmed)` or a plain qualitative outcome. Never write an unconfirmed number.
 
 ## projects/<slug>.md
 

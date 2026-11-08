@@ -25,6 +25,7 @@ Goal: turn the whole tenure into a reviewed log, one month at a time, without ma
 2. **Collect each month**, oldest first. Use parallel subagents, one per source per month. Each one gets: the source recipe from `sources.md`, the window, the identities, and the raw grammar from `formats.md`. It returns items and doesn't write files. The main agent writes `raw/`, dedupes, and records gaps. After each month, commit (`shipped: backfill collect <YYYY-MM>`) and update `state.backfill.done_through`.
 3. **Candidates per week** for the whole range.
 4. **Review month by month,** with stricter batching: for older months, show the top 5 candidates per week and auto-reject the "smaller wins" bundle, unless the user asks to see it. Ask the metric questions only for headline-worthy candidates; older numbers are harder to remember and verify.
+   - If the user skips the pickers or answers in chat instead, switch to **accept-by-default**. List the month's candidates as one compact numbered list, accept every one that has a receipt, and say "tell me any to drop." Keep asking only for the numbers, in plain chat. A dozen pickers for a backfill month is too slow.
 5. At the end, run `statement` for the full tenure and `resume`. Show both paths.
 
 The user can stop at any point. `state.backfill` lets `/shipped backfill` pick up where it left off.
