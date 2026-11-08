@@ -60,7 +60,7 @@ Match `style_examples`. The default, matching autoCV-style CVs: past-tense verb 
 ### `--pr`
 
 1. Run redaction (below) on `out/role.tex`. If anything gets flagged, stop and show it.
-2. In `config.resume.cv_repo`: `git fetch && git checkout -b shipped/<employer-slug>-<YYYY-MM-DD> origin/main`.
+2. In `config.resume.cv_repo`, never touch the user's working tree, which may hold uncommitted CV edits: `git fetch && git worktree add -b shipped/<employer-slug>-<YYYY-MM-DD> /tmp/shipped-cv-<date> origin/main`. Edit there, and remove the worktree after the PR is opened.
 3. If a `\begin{role}{<Employer>}` block exists, replace it. Otherwise insert it as the first role under `\section{Experience}` (newest role first), unless `config.resume.insert_after` names a role.
 4. Show the diff. Ask: "Open PR to <repo>? This repo is public." Only after a yes: commit, push, `gh pr create`. Never merge.
 
