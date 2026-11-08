@@ -23,6 +23,8 @@ gh search commits --author <github_login> --owner <org> --author-date "<from>..<
 ```
 Verbs: `opened`, `merged` (only if `mergedAt` falls in the window), `reviewed`. Include additions and deletions. Leave out bot PRs and draft PRs that were closed without merging.
 
+Some repos are built with direct commits and no PRs (early prototypes, solo repos). Don't write one item per commit. Write **one `committed` item per repo per day**: `[gh:<owner/repo>@<YYYY-MM-DD>] committed · <n> commits to <repo>: <first 3 subjects>; +<k> more · https://github.com/<owner/repo>/commits?author=<login>&since=<d>&until=<d+1>`. Skip `Merge …` commits. A repo-day full of commits is often the strongest signal that something got built, so the candidates step should read the commit subjects.
+
 ## linear
 
 ToolSearch: `list_issues get_issue list_comments`.

@@ -66,7 +66,7 @@ runs:
 
 Item grammar: `- [<source>:<stable id>] <verb> · <one-line summary> · <link>`
 - The **stable id** is the dedupe key. Before appending, grep `raw/` across the last 30 days for `[<source>:<id>]`. If it's already there, skip it, unless the state changed (for example opened → merged). Then add it again with the new verb.
-- **Verbs:** `merged`, `opened`, `reviewed`, `closed`, `created-issue`, `authored`, `edited`, `answered`, `asked`, `announced`, `led`, `attended`, `action-assigned`, `action-done`, `praise`, `context`.
+- **Verbs:** `merged`, `opened`, `committed`, `reviewed`, `closed`, `created-issue`, `authored`, `edited`, `answered`, `asked`, `announced`, `led`, `attended`, `action-assigned`, `action-done`, `praise`, `context`.
 - Optional quote line: `  > "<≤25 words verbatim>" (<speaker>, praise|impact)`.
 - Leave out empty source sections. Always write the frontmatter `runs` entry, even when nothing was found, so "quiet day" and "didn't run" look different.
 
