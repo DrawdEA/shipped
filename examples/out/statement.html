@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Statement · Ada Lovelace</title>
+<style>
+  :root {
+    --bg: #fbfaf7; --fg: #1c1b19; --muted: #6b675f; --rule: #e4e0d8;
+    --accent: #1f4fd1; --chip: #efece5; --win: #fff6dd; --win-rule: #f0d98a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --fg: #ecebe7; --muted: #9b978e; --rule: #2c2b28;
+      --accent: #7ea2ff; --chip: #23221f; --win: #2a2516; --win-rule: #5c4d1d;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --fg: #ecebe7; --muted: #9b978e; --rule: #2c2b28;
+    --accent: #7ea2ff; --chip: #23221f; --win: #2a2516; --win-rule: #5c4d1d;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+    font: 15px/1.55 ui-sans-serif, -apple-system, "Inter", "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 16px 80px; }
+  header .eyebrow { font: 600 12px/1 ui-monospace, "SF Mono", monospace; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted); }
+  h1 { font-size: 30px; line-height: 1.15; margin: 10px 0 6px; letter-spacing: -.01em; }
+  .sub { color: var(--muted); margin: 0; }
+  .owns { margin: 14px 0 0; font-size: 16px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+    margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
+  .wins { display: grid; gap: 10px; }
+  .win { background: var(--win); border: 1px solid var(--win-rule); border-radius: 10px; padding: 12px 14px; }
+  .win b { display: block; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; }
+  .stat { border: 1px solid var(--rule); border-radius: 10px; padding: 12px; }
+  .stat .n { font: 600 26px/1 ui-sans-serif, -apple-system, sans-serif; font-variant-numeric: tabular-nums; }
+  .stat .l { color: var(--muted); font-size: 12px; margin-top: 6px; }
+  .project h3 { font-size: 18px; margin: 26px 0 4px; }
+  .project .summary { color: var(--muted); margin: 0 0 8px; }
+  ul { padding-left: 18px; margin: 6px 0; }
+  li { margin: 6px 0; }
+  .meta { color: var(--muted); font-size: 13px; white-space: nowrap; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { background: var(--chip); border-radius: 999px; padding: 3px 10px; font-size: 13px; }
+  .chip .w { color: var(--muted); margin-left: 4px; }
+  .chip.new { outline: 1px solid var(--accent); }
+  footer { margin-top: 48px; color: var(--muted); font-size: 12px; }
+  @media print { body { background: #fff; } main { padding: 0; } .win { break-inside: avoid; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">Statement · Q3 2026</div>
+    <h1>Ada Lovelace</h1>
+    <p class="sub">Software Engineer · Acme Corp · Aug 3 – Oct 31, 2026</p>
+    <p class="owns">I own Acme's billing webhook pipeline and the Globex shipment sync, from code through client demos.</p>
+  </header>
+
+  <h2>Headline wins</h2>
+  <div class="wins">
+    <div class="win"><b>Stopped duplicate invoices.</b>Added idempotency keys to the invoice webhook handler, taking duplicate invoices from ~40/month to 0. <span class="meta">· Oct 27 · <a href="https://github.com/acme-corp/billing/pull/218" target="_blank">PR #218</a></span></div>
+    <div class="win"><b>Fixed Globex month-end sync.</b>Batched shipment status sync with backoff, cutting month-end sync from ~3h to ~20 min, and demoed it to their ops team. <span class="meta">· Oct 29 · <a href="https://app.fireflies.ai/view/01JBZ4M8?t=2310" target="_blank">Demo</a></span></div>
+    <div class="win"><b>Sped up invoice PDFs.</b>Moved PDF rendering to a background queue, taking p95 from ~6s to ~1.5s. <span class="meta">· Sep 24 · <a href="https://github.com/acme-corp/billing/pull/171" target="_blank">PR #171</a></span></div>
+  </div>
+
+  <h2>By the numbers</h2>
+  <div class="stats">
+    <div class="stat"><div class="n">23</div><div class="l">PRs merged</div></div>
+    <div class="stat"><div class="n">17</div><div class="l">Linear issues closed</div></div>
+    <div class="stat"><div class="n">4</div><div class="l">docs authored</div></div>
+    <div class="stat"><div class="n">3</div><div class="l">client sessions led</div></div>
+    <div class="stat"><div class="n">6</div><div class="l">people unblocked</div></div>
+  </div>
+
+  <h2>By project</h2>
+  <section class="project">
+    <h3>Billing revamp</h3>
+    <p class="summary">I own the webhook pipeline end to end: ingestion, idempotency, and the on-call runbook.</p>
+    <ul>
+      <li>Added idempotency keys to invoice webhooks, taking duplicate invoices from ~40/month to 0. <span class="meta">· Oct 27 · <a href="https://github.com/acme-corp/billing/pull/218" target="_blank">PR #218</a> · <a href="https://acme.slack.com/archives/C05BILLING/p1793156400118200" target="_blank">Priya</a></span></li>
+      <li>Wrote the webhook retry runbook for on-call, closing a Billing weekly action item. <span class="meta">· Oct 29 · <a href="https://www.notion.so/acme/Webhook-retry-runbook-4b7d22c0" target="_blank">Runbook</a></span></li>
+      <li>Migrated invoice tables to the new schema with zero downtime, with Priya. <span class="meta">· Oct 8 · <a href="https://github.com/acme-corp/billing/pull/196" target="_blank">PR #196</a></span></li>
+      <li>Moved invoice PDF rendering off the request path, taking p95 from ~6s to ~1.5s. <span class="meta">· Sep 24 · <a href="https://github.com/acme-corp/billing/pull/171" target="_blank">PR #171</a></span></li>
+      <li>Proposed the webhook-first billing design, which the team adopted. <span class="meta">· Sep 3 · <a href="https://www.notion.so/acme/Webhook-first-billing-1c9e44aa" target="_blank">Design doc</a></span></li>
+    </ul>
+  </section>
+  <section class="project">
+    <h3>Globex integration</h3>
+    <p class="summary">I took over the Globex shipment sync in September and now handle the client-facing fixes and demos.</p>
+    <ul>
+      <li>Batched shipment status sync to 500/req with backoff, cutting month-end sync from ~3h to ~20 min. Demoed it to Globex ops. <span class="meta">· Oct 29 · <a href="https://github.com/acme-corp/globex-sync/pull/31" target="_blank">PR #31</a> · <a href="https://app.fireflies.ai/view/01JBZ4M8?t=2310" target="_blank">Demo</a></span></li>
+      <li>Explained the month-end lag and the fix to Globex in #ext-globex before their close. <span class="meta">· Oct 29 · <a href="https://acme.slack.com/archives/C05GLOBEX/p1793325600441900" target="_blank">Thread</a></span></li>
+      <li>Added alerting for failed sync batches, so the team hears about failures before Globex does. <span class="meta">· Oct 2 · <a href="https://github.com/acme-corp/globex-sync/pull/24" target="_blank">PR #24</a></span></li>
+    </ul>
+  </section>
+  <section class="project">
+    <h3>Infra &amp; tooling</h3>
+    <p class="summary">Shared CI and developer tooling.</p>
+    <ul>
+      <li>Cut the billing service's CI time from ~14 min to ~6 min with test sharding. <span class="meta">· Sep 17 · <a href="https://github.com/acme-corp/infra/pull/61" target="_blank">infra#61</a></span></li>
+    </ul>
+  </section>
+
+  <h2>Unblocked &amp; helped</h2>
+  <ul>
+    <li>Walked Sam through debugging the flaky Postgres test container that had his PRs blocked for two days. <span class="meta">· Oct 27 · <a href="https://acme.slack.com/archives/D06SAMADA/p1793170000002100" target="_blank">DM</a></span></li>
+    <li>Priya: “this is the bug finance has been yelling about since July, thank you Ada 🙏” <span class="meta">· Oct 27 · <a href="https://acme.slack.com/archives/C05BILLING/p1793156400118200" target="_blank">#proj-billing</a></span></li>
+    <li>Paired with a new hire on their first billing PR and reviewed it the same day. <span class="meta">· Oct 14 · <a href="https://github.com/acme-corp/billing/pull/203" target="_blank">billing#203</a></span></li>
+    <li>Answered finance's question on proration edge cases with a query they now run monthly. <span class="meta">· Sep 30 · <a href="https://acme.slack.com/archives/C05FINANCE/p1790726400221000" target="_blank">Thread</a></span></li>
+  </ul>
+
+  <h2>Growth</h2>
+  <div class="chips">
+    <span class="chip">TypeScript<span class="w">9w</span></span>
+    <span class="chip">Postgres<span class="w">7w</span></span>
+    <span class="chip">Stripe<span class="w">5w</span></span>
+    <span class="chip">Node.js<span class="w">4w</span></span>
+    <span class="chip">CI<span class="w">3w</span></span>
+    <span class="chip">Queues<span class="w">3w</span></span>
+    <span class="chip new">Client demos<span class="w">2w</span></span>
+    <span class="chip new">Rate limiting<span class="w">1w</span></span>
+  </div>
+
+  <footer>Generated by Shipped from 21 reviewed entries · 2026-11-01 19:10 EST · Private: contains internal names and links.</footer>
+</main>
+</body>
+</html>

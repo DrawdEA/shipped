@@ -1,0 +1,61 @@
+# Example config for a fake engineer. All values are made up.
+
+person:
+  name: Ada Lovelace
+  role_title: Software Engineer
+  location: Remote
+  timezone: America/New_York
+  start_date: 2026-08-03
+
+employer:
+  name: Acme Corp
+
+identities:
+  emails: [ada@acme.com]
+  slack_user_id: U07ADA0LOVE
+  github_login: adalovelace
+  linear: me
+
+sources:
+  github:    { enabled: true, orgs: [acme-corp] }
+  linear:    { enabled: true }
+  slack:     { enabled: true, include_dms: true }
+  fireflies: { enabled: true }
+  notion:    { enabled: true }
+  gmail:     { enabled: true, role: context, client_domains: [globex.com], query_extra: "-category:promotions -category:social" }
+  calendar:  { enabled: true, role: context }
+
+projects:
+  - slug: billing-revamp
+    name: Billing revamp
+    public_name: Payments platform rewrite
+    client: null
+    match: [billing, invoice, "#proj-billing", acme-corp/billing, "Billing Revamp"]
+  - slug: globex-integration
+    name: Globex integration
+    public_name: Enterprise logistics integration
+    client: Globex
+    match: [globex, "#ext-globex", acme-corp/globex-sync]
+  - slug: infra
+    name: Infra & tooling
+    public_name: Internal developer tooling
+    client: null
+    match: [acme-corp/infra, ci, "#eng-infra", deploy]
+
+redact:
+  "Globex Corporation": "a logistics client"
+  "Globex": "a logistics client"
+  "#ext-globex": "the client channel"
+
+resume:
+  cv_repo: ~/code/ada-cv
+  cv_file: cv.tex
+  format: autocv
+  max_bullets: 4
+  insert_after: null
+  style_examples:
+    - "Built a registration platform for 500+ members, reducing check-in time by 75% across 15+ events."
+    - "Shipped 21 desktop engineering changes across Electron UX, cross-platform reliability, and performance."
+
+git:
+  push: false

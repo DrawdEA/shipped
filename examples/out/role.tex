@@ -1,0 +1,6 @@
+\begin{role}{Acme Corp}{Remote}{Software Engineer}{Aug 2026 -- Present}
+\item Rebuilt invoice webhook handling with idempotency keys, eliminating duplicate invoices (\textasciitilde40/month to 0) and writing the on-call retry runbook.
+\item Cut month-end shipment sync for a logistics client from \textasciitilde3h to \textasciitilde20 min by batching requests with backoff, and demoed the new sync dashboard to their ops team.
+\item Moved invoice PDF rendering to a background queue, reducing p95 latency from \textasciitilde6s to \textasciitilde1.5s, and migrated invoice tables to a new schema with zero downtime.
+\item Shipped 23 PRs across billing, integrations, and CI, including test sharding that cut CI time from \textasciitilde14 min to \textasciitilde6 min.
+\end{role}

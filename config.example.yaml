@@ -1,0 +1,50 @@
+# Shipped config. Copy to <data repo>/config.yaml. `/shipped setup` fills most of it for you.
+# This file lives in your PRIVATE data repo. Never commit your real config to the public repo.
+
+person:
+  name: Ada Lovelace
+  role_title: Software Engineer            # as it should appear on your CV
+  location: Remote
+  timezone: America/New_York               # IANA name; all dates use this
+  start_date: 2026-01-15                   # first day at this employer; backfill starts here
+
+employer:
+  name: Acme Corp
+
+identities:
+  emails: [ada@acme.com]
+  slack_user_id: U0123456789               # Slack profile > ⋮ > Copy member ID
+  github_login: adalovelace
+  linear: me                               # "me" works with the Linear connector
+
+sources:                                   # enabled: false to skip; role: context = evidence only, never a win on its own
+  github:    { enabled: true, orgs: [acme-corp] }
+  linear:    { enabled: true }
+  slack:     { enabled: true, include_dms: true }
+  fireflies: { enabled: true }
+  notion:    { enabled: true }
+  gmail:     { enabled: false, role: context, client_domains: [], query_extra: "-category:promotions -category:social" }
+  calendar:  { enabled: false, role: context }
+
+projects:                                  # how raw items get mapped to projects (case-insensitive substring match)
+  - slug: billing-revamp
+    name: Billing revamp
+    public_name: Payments platform rewrite # used in redacted/public output
+    client: null
+    match: [billing, invoices, "#proj-billing", acme-corp/billing]
+
+redact:                                    # exact string -> replacement, applied to anything public. Longest keys win.
+  "Globex Corporation": "a Fortune 500 logistics client"
+  "Globex": "a logistics client"
+
+resume:
+  cv_repo: null                            # e.g. ~/code/my-cv (LaTeX autoCV, or any repo with your CV source)
+  cv_file: cv.tex
+  format: autocv                           # autocv | markdown
+  max_bullets: 4
+  insert_after: null                       # role name to insert after; null = first role under Experience
+  style_examples:                          # 2-4 bullets from your current CV; Shipped matches this voice
+    - "Shipped 21 desktop engineering changes across Electron UX, cross-platform reliability, and performance."
+
+git:
+  push: false                              # true only if the data repo has a PRIVATE remote
